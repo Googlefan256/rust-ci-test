@@ -1,0 +1,2 @@
+[workspace]
+members = ["./testbin", "./testbin2"]
