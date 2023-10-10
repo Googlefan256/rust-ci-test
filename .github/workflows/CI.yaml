@@ -15,7 +15,7 @@ jobs:
       - name: Setup rust
         uses: actions-rs/toolchain@v1
       - name: Build cross platform
-        uses: neodyland/rust-ci@929d912a017f5558d7369c8898f9f21abbc74d43
+        uses: neodyland/rust-ci@133428940f08a0879709f02e6805c1bf7ce62de6
         with:
           package: testbin,testbin2
       - name: List result x86-64
