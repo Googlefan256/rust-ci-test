@@ -1,29 +1,20 @@
-name: Try cross platform build
+name: Try build
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
-  build:
+  build_and_push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Build cross platform
-        uses: neodyland/rust-ci@a08c2e949f5774fa65e321840a3666c71e230ef2
+        uses: neodyland/rust-ci@29a6bfd5c8bcd76fc7b48aa0fc25e53cbdb3f47b
         with:
           package: testbin,testbin2
-      - name: List result x86-64
-        run: ls .out/x86-64
-      - name: List result aarch64
+          install-rustup: false
+          install-openssl: true
+          cache: true
+      - name: Get list
         run: ls .out/aarch64
