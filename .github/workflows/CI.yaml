@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build cross platform
-        uses: neodyland/rust-ci@b60810bf70d1451fe3852b3b5e6684a4be7a9e08
+        uses: neodyland/rust-ci@bd8ae84d19bd9a782e1df22b2cb550775357733f
         with:
           package: testbin,testbin2
           install-rustup: false
